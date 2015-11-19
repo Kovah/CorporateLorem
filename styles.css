@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif');
+
+body {
+    font-size: 16px;
+    font-family: "Noto Serif", sans;
+    line-height: 1.25;
+    color: #676982;
+    position: relative;
+    background: #EBE7E0;
+}
+
+a {
+    color: #6774A0;
+    text-decoration: none;
+}
+a:hover,
+a:focus,
+a:active {
+    color: #6774A0;
+    text-decoration: underline;
+}
+
+code {
+    color: #6774A0;
+}
+
+.container {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 800px;
+}
+.content {
+    padding: 1rem;
+    background: #fff;
+}
+
+h1 {
+    color: #6774A0;
+    margin: 0;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+button {
+    cursor: pointer;
+    float: right;
+    border: none;
+    margin: 0 0 0 2rem;
+    padding: 0;
+	background: none;
+}
+button:hover {
+    border: none;
+}
+button span{
+    display: none;
+}
+button img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.menu ul {
+    color: #9CA2BC;
+    font-size: .75rem;
+    list-style: none;
+    padding-left: 1rem;
+}
+.menu ul li {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+p {
+    margin: 0;
+    margin-bottom: 1rem;
+}
+p:last-child {
+    margin-bottom: 0;
+}
+
+.footer {
+    padding: 1rem 0;
+    color: #9CA2BC;
+    font-size: .8rem;
+}
+.footer p {
+    margin: 0;
+}
+.footer ul {
+    margin: 0.5rem 0;
+    padding-left: 1rem;
+}
