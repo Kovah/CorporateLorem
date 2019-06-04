@@ -1,15 +1,14 @@
 <?php
-if (!defined('DEVLOREM')) {
+if (!defined('CORPORATELOREM')) {
     exit('No direct script access allowed');
 }
 ?>
 <!doctype html>
-
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>CorporateLorem</title>
-    <link rel="stylesheet" href="styles.css?v=1.0">
+    <title>CorporateLorem for <?php echo $headline; ?></title>
+    <link rel="stylesheet" href="/styles.css?v=2.0">
 </head>
 <body>
 
@@ -18,32 +17,37 @@ if (!defined('DEVLOREM')) {
     <div class="menu">
         <ul>
             <li><a href="<?php echo $menu_link; ?>"><?php echo $menu_text; ?></a></li>
-            <li>(Click a paragraph three times to select the text)</li>
+            <li>(Click a paragraph to copy the text)</li>
         </ul>
     </div>
 
     <div class="content">
         <h1>
             <?php echo $headline; ?>
-            <button onclick="window.location.href=window.location.href">
+            <button onclick="window.location.href=window.location.href" title="Reload the page for new texts">
                 <span>Reload</span>
-                <img
-                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAACAVBMVEUAAABndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKBndKDhZvsyAAAAqnRSTlMAAQIDBAUGBwgJCgsMDQ4PEBESExQVFhcYGRocHR4fICIjJCUmJygpKissLS4vMDM0NTY3ODo7PD0+P0FCQ0RFRkdJS0xNTk9RUlRVVldZW1xfYWJjZGdoaW1vcHFzdHd4eXt+f4CChYaIiYuMj5GSlJWYmpudnqCio6WmqKqrrbCytLW3uby+wMHDxcfIyszOz9HT1dfZ2tze4OLk5ujp6+3v8fP19/n7/TdL5IIAAAUeSURBVBgZxcGJXxRlAAbgd3ZhWMQDwYNUVJQKQ9pEMrPEvMrUDE1EEwtF0kw/ZUUrSyDKyIsKPBBjYUBh9/0r0998swfM7s7OsfM8cEiBz74Lw1+CERV+EqQWho8EX4mo8I3ga1oYfhHURVT4Q1DSwvCFYEJEhQ8Ek7QwCk8wVURFoQmm0cIoMME5IioKSnAuLYxCEpwvoqJwBE1oYRSMoKmIigIRNKeFURiCmURUeElZsKZuy459R4aZkRaGN9S61p4ntCKiwm3Bzd88onVaGG5Sai/HmKeICreUtU/TBi0MVyz9gXZFVDhW2UMHtDCcCbbToYgKB8JRZjD99IFGS7R62FXSy3nifV9tqy5T8IqgJR1FsKlmknPc3l+lIEHQgv4K2HWU6f5qLkEawZzGGmBXUR/TdC3BXII5xFoCsCs0zBSzX5diPsHsukth25LnTHE1BDOC2QythX1VU0waWQ9zgplNNcOB1bNMalWQgWBGHUVwoOIFEyY3IiPBDPor4MSCcSb8HkJmgqbGGuCI+pgJlxRkIWgi1hKAI8o9JpxGVoLzdZfCofNM+ALZCc41tBZObWXCZ8hBMN1UMxxbPEPDCeQimKajCI4pQzR0ISfBFP0VcEELDTeRm2DCWAPcUBajNBpEboJSrCUAV9yiFF8BCwR13aVwRwMNe2GF4GtDa+ES5Rml27BEkJxqhmsaKcUXwRJBdhTBPcOUjsEa0V8BF22iNBqANZVw1V1KTfDFMkrPFfjiBKVd8EeUOi0AX1RTOgF/nKO0DP6IUvcI/iijdBj+eI9SBfxxjroZ+GSUupvwR5DSPvijnNIq+KOWUgn8sZu6OHxyhrq/4ZMIdQI+6aWuHT4ZpO44fDJC3SH4JErdHvgkRt2H8M76DbpSmNCo2wXvUGqEiSfUHYBnFErvwMQ96o7CMwFKNTDRT90peKaY0iqYuEndBXimjNIymDhP3Z/wzFpKC2Dic+pewjMfUFJgooFSMbzSSt0TmFlOqRJe6aauB2aKKW2DVyaoa4OpKeouwiMLKb0PU1epi8IjjZTKYWonpTJ4o5O6aZirpLQd3hin7hoymKFuAJ5YQ6kZGUQolcILZylVIIN3Ke2HB5QX1I0gk8AsdcPwwGZKB5HRRUpvw333KS1ERjWUBuG6GkqDyEz5j1I13DZAaTuy2ENpAC5bRymqIIvAFKVGuEr5l9J+ZHWYUjQINx2gNB1AVkUzlM7ARaWzlL5EDodpqIZ7blOaCCIHZYTSuAq3tNCwFTmtp6EXLllHQz8sEDQcgytKojSUw4KSaRp2wAXBhzS0wpI6JtTBMWWAhjsKrDlFQ2w1nLpBw1QIFil3aHhZDUeUa0x4E5aFNBpi9XAg0MeENuShapYJH8G24rtMuIa81DKpDTZVPmZCr4L8NDFpoAR27Iwx4W4A+fqUSZMbkbfAFSY9Kkb+9jHFhWLkp36MSQ9V2NHIFNMfIw8LbzHFQBD2bJhhivubYFHoVJwpbiiwa+UEU400Kcht8Xmm6YIDJf1MM95aiayCW35hmtntcKaVc4wcXKnAXKjhSozphpfCqQ2TnCvee2jjkiBShaqaOp9xnssBOFfUSVOTv13/vuPk8dNd4qd/4jTz9C24440HtCF+TIFrdk8yXz8ugpsCzWPMh6iE25SmYVoU71wETyw/OcHcercG4Z11344yi9ivn4TgtVD96YdxzjfZs3eFgkIJrWo80t519ec/BvuuXzrbtru2PAh7/gdVO60WZP+a6AAAAABJRU5ErkJggg=="
-                    alt="Reload">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path fill="#37474F"
+                        d="M500.33 0h-47.41a12 12 0 0 0-12 12.57l4 82.76A247.42 247.42 0 0 0 256 8C119.34 8 7.9 119.53 8 256.19 8.1 393.07 119.1 504 256 504a247.1 247.1 0 0 0 166.18-63.91 12 12 0 0 0 .48-17.43l-34-34a12 12 0 0 0-16.38-.55A176 176 0 1 1 402.1 157.8l-101.53-4.87a12 12 0 0 0-12.57 12v47.41a12 12 0 0 0 12 12h200.33a12 12 0 0 0 12-12V12a12 12 0 0 0-12-12z"></path>
+                </svg>
             </button>
         </h1>
         <?php echo(empty($content) ? 'Sorry, an error occurred!' : $content); ?>
     </div>
 
     <div class="footer">
-        A Project by <a href="https://kovah.de">Kovah.de</a> | Also available <a href="https://devlorem.kovah.de">online</a> and
-        <a href="#api" id="api-toggle">via API</a> | <a href="https://devlorem.kovah.de">Why so serious?</a> |
-        <a href="https://github.com/Kovah/DevLorem">Contribute</a>
+        A Project by <a href="https://kovah.de">Kovah.de</a>
+        | Also available <a href="https://corporatelorem.kovah.de">online</a> and
+        <a href="#api" id="api-toggle">via API</a> | <a href="https://dev.kovah.de">Lorem for Developers</a>
+        | <a href="https://github.com/Kovah/Corporatelorem">Contribute</a>
     </div>
 
     <div id="api" class="footer" style="display: none;">
-        <p>Required URL structure:<br/>
-            <code><?php echo ($_SERVER["HTTP_HOST"] != "" ? $_SERVER["HTTP_HOST"] : 'domain.com'); ?>/api/[int][/p][/json]</code></p>
+        <p>
+            Required URL structure:<br/>
+            <code><?php echo($_SERVER['HTTP_HOST'] ?? 'yourdomain.com'); ?>
+                /api/[int][/p][/json]</code>
+        </p>
         <ul>
             <li>[int] = optional, number of paragraphs you want</li>
             <li>[/p] = optional, select if the <code>&lt;p&gt;</code> tags should be included</li>
@@ -53,15 +57,55 @@ if (!defined('DEVLOREM')) {
 
 </div>
 
+<script src="/clipboard.min.js"></script>
 <script>
-    document.getElementById("api-toggle").addEventListener("click", function (e) {
-		e.preventDefault();
-        if (document.getElementById("api").style.display === "block") {
-            document.getElementById("api").style.display = "none";
+    document.getElementById('api-toggle').addEventListener('click', function (e) {
+        e.preventDefault();
+        var $apiWrapper = document.getElementById('api');
+        if ($apiWrapper.style.display === 'block') {
+            $apiWrapper.style.display = 'none';
         } else {
-            document.getElementById("api").style.display = "block";
+            $apiWrapper.style.display = 'block';
+            window.scrollTo(0, $apiWrapper.getBoundingClientRect().top);
         }
-    })
+    });
+
+    var paragraphs = document.querySelectorAll('.content p');
+    var numParagraphs = paragraphs.length;
+    for (var i = 0; i < numParagraphs; i++) {
+
+        var clipboard = new ClipboardJS(paragraphs[i], {
+            text: function (trigger) {
+                return trigger.innerHTML;
+            }
+        });
+
+        clipboard.on('success', function (e) {
+            e.trigger.classList.remove('success');
+            e.trigger.classList.add('success');
+            setTimeout(function () {
+                e.trigger.classList.remove('success');
+            }, 2000);
+        });
+
+        paragraphs[i].addEventListener('click', function (e) {
+            if (document.body.createTextRange) {
+                const range = document.body.createTextRange();
+                range.moveToElementText(e.currentTarget);
+                range.select();
+                document.execCommand('copy');
+            } else if (window.getSelection) {
+                const selection = window.getSelection();
+                const range = document.createRange();
+                range.selectNodeContents(e.currentTarget);
+                selection.removeAllRanges();
+                selection.addRange(range);
+                document.execCommand('copy');
+            } else {
+                console.warn('Could not select text in node: Unsupported browser.');
+            }
+        });
+    }
 </script>
 
 </body>

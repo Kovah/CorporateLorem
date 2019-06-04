@@ -1,17 +1,17 @@
 <?php
-if (!defined('DEVLOREM')) {
+if (!defined('CORPORATELOREM')) {
     exit('No direct script access allowed');
 }
 
-function getRandomQuotes() {
+function getRandomTexts() {
     // Select a random lorem file
-    $dir = __DIR__ . "/lorem/";
-    $files = glob($dir . "*.*");
+    $dir = __DIR__ . '/lorem/';
+    $files = glob($dir . '*.*');
     $file = array_rand($files);
 
     // Get the file contents and format the source
     $content = file_get_contents($files[$file]);
-    $source = strtoupper(str_replace(".txt", "", str_replace($dir, "", $files[$file])));
+    $source = strtoupper(str_replace('.txt', '', str_replace($dir, '', $files[$file])));
 
     $split_content = explode(PHP_EOL, $content);
     shuffle($split_content);
@@ -24,7 +24,7 @@ function getRandomQuotes() {
 
 function fillOrTrimQuotes($split_content, $count) {
     while (count($split_content) < $count) {
-        $quotes = getRandomQuotes();
+        $quotes = getRandomTexts();
         $split_content = array_merge($split_content, $quotes['content']);
     }
 

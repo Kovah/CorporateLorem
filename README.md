@@ -1,10 +1,10 @@
-# DevLorem
+# CorporateLorem
 
 Show paragraphs of real text ready to copy and paste. No more "Lorem ipsum dolor", get some lines from serious articles.
 
-![Preview Screenshot](http://i.imgur.com/u4CEZiF.jpg)
+![Preview Screenshot](/preview.png)
 
-## Get Quotes via API
+## Get Text via API
 
 Required URL structure:
 `your-domain.com/api/[int][/p][/json]`
@@ -20,16 +20,17 @@ Required URL structure:
 * `your-domain.com/api/100/p` would get you 100 paragraphs as plain text including the `<p>` tags
 * `your-domain.com/api/100` would get you 100 paragraphs as plain text without `<p>` tags
 
-======
+---
 
 ### Contribution
 
-Want to contribute more source texts? Please create a pull request for the new file that should follow the exact same styling like the ones that are already available:
+Want to contribute more source texts? Please create a pull request for the new file that should follow the exact same 
+styling like the ones that are already available:
 
-* Name the file by the person or thing you want to reference.
+* Name the file by the topic or thing you want to reference.
 * The text file should not contain special characters but can contain spaces.
 * Place all paragraphs into `<p></p>` tags.
 
-------
+---
 
-DevLorem is a project by [Kovah](https://kovah.de) | [Contributors](https://github.com/Kovah/CorporateLorem/graphs/contributors)
+CorporateLorem is a project by [Kovah](https://kovah.de) | [Contributors](https://github.com/Kovah/CorporateLorem/graphs/contributors)
