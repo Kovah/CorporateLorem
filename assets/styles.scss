@@ -1,27 +1,31 @@
 @tailwind base;
 
 body {
-  @apply font-mono;
+  font-family: 'Garamound', 'Georgia', serif;
 }
 
 a {
-  @apply text-teal-400;
+  @apply text-orange-600;
 }
 
 a:hover {
-  @apply text-teal-200;
+  @apply text-orange-800;
 }
 
 a:focus {
-  @apply text-teal-200;
+  @apply text-orange-800;
 }
 
 a:active {
-  @apply text-teal-200;
+  @apply text-orange-800;
 }
 
 .content p {
   position: relative;
+}
+
+.content p:hover {
+  cursor: copy;
 }
 
 .content p:after {
@@ -32,8 +36,10 @@ a:active {
    @apply px-3;
    @apply py-1;
    @apply text-sm;
-   @apply rounded;
-   @apply bg-teal-600;
+   @apply rounded-sm;
+   @apply bg-gray-200;
+   @apply border-2;
+   @apply shadow;
    opacity: 0;
    transition: opacity 200ms ease;
 }
