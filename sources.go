@@ -13,9 +13,16 @@ type Source struct {
 }
 
 func GetSources() []string {
-	arr := make([]string, 1)
+	arr := make([]string, 8)
 
-	arr[0] = "test.json"
+	arr[0] = "health.json"
+	arr[1] = "movies-music-art.json"
+	arr[2] = "politics.json"
+	arr[3] = "science.json"
+	arr[4] = "social-media.json"
+	arr[5] = "sports.json"
+	arr[6] = "technology.json"
+	arr[7] = "videogames.json"
 
 	return arr
 }
