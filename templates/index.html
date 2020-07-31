@@ -32,7 +32,7 @@
         <a href="/p">Show &lt;p&gt;</a>
       {{ end }}
       <br>
-      <span class="text-gray-700">Click a sentence or the &lt;p&gt; to copy</span>
+      <span class="text-gray-500">Click a sentence or the &lt;p&gt; to copy</span>
     </div>
   </div>
 
@@ -51,7 +51,7 @@
     <div class="content">
       {{ range .Source.Paragraphs }}
         <div class="paragraph mb-4 cursor-pointer relative flex">
-          <span class="copy-paragraph text-gray-500 font-smaller mr-1 hover:bg-orange-200 hover:border-2 border-orange-200">&lt;p&gt;</span>
+          <span class="copy-paragraph {{ if not $.ShowsParagraphs }}text-gray-500{{ end }} font-smaller mr-1 hover:bg-orange-200 hover:border-2 border-orange-200">&lt;p&gt;</span>
           <p class="inline-block">{{ . }}</p>
         </div>
       {{ end }}
