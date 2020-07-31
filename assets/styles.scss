@@ -1,0 +1,50 @@
+@tailwind base;
+
+body {
+  font-family: 'Garamound', 'Georgia', serif;
+}
+
+a {
+  @apply text-orange-600;
+}
+
+a:hover {
+  @apply text-orange-800;
+}
+
+a:focus {
+  @apply text-orange-800;
+}
+
+a:active {
+  @apply text-orange-800;
+}
+
+.paragraph:after {
+   content: 'Copied!';
+   position: absolute;
+   top: 0;
+   right: 0;
+   @apply px-3;
+   @apply py-1;
+   @apply text-sm;
+   @apply rounded-sm;
+   @apply bg-gray-200;
+   @apply border-2;
+   @apply shadow;
+   opacity: 0;
+   transition: opacity 200ms ease;
+}
+
+.paragraph.success:after {
+   opacity: 1;
+}
+
+.copy-paragraph:hover,
+.sentence:hover {
+  @apply bg-orange-200;
+  outline: 2px solid #feebc8;
+}
+
+@tailwind components;
+@tailwind utilities;

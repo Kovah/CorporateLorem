@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" class="min-h-full bg-gray-100 text-gray-900" style="background-color: #f9f7f5; color: #1d1f23">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="copy-paragraphs" content="{{ .ShowsParagraphs }}">
+
+  <title>CorporateLorem</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <link rel="icon" href="/static/favicon.svg">
+
+  <meta property="og:title" content="CorporateLorem" />
+  <meta property="og:url" content="https://corporatelorem.kovah.de/" />
+  <meta property="og:description" content="Get paragraphs of real text ready to copy and paste. No more 'Lorem ipsum dolor', get some lines from serious articles." />
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="CorporateLorem">
+  <meta name="twitter:description" content="Get paragraphs of real text ready to copy and paste. No more 'Lorem ipsum dolor', get some lines from serious articles.">
+  <meta name="twitter:creator" content="@kovah_kvh">
+</head>
+<body>
+
+<div class="container mx-auto px-4 xl:max-w-5xl">
+
+  <div class="py-12 px-6 sm:flex items-center">
+    <h1 class="text-2xl font-bold inline-block mb-4 sm:mb-0 sm:mr-6">CorporateLorem</h1>
+    <div class="ml-auto text-xs sm:text-right">
+      {{ if .ShowsParagraphs }}
+        <a href="/">Hide &lt;p&gt;</a>
+      {{ else }}
+        <a href="/p">Show &lt;p&gt;</a>
+      {{ end }}
+      <br>
+      <span class="text-gray-500">Click a sentence or the &lt;p&gt; to copy</span>
+    </div>
+  </div>
+
+  <div class="p-6 border-2 border-gray-300 rounded-sm">
+    <div class="flex items-center mb-6">
+      <h2 class="text-3xl mr-6">
+        {{ .Source.Source }}
+      </h2>
+      <button onclick="window.location.href=window.location.href" title="Reload the page for new texts" class="ml-auto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-10 h-10">
+          <path fill="#ed8936"
+                d="M500.33 0h-47.41a12 12 0 0 0-12 12.57l4 82.76A247.42 247.42 0 0 0 256 8C119.34 8 7.9 119.53 8 256.19 8.1 393.07 119.1 504 256 504a247.1 247.1 0 0 0 166.18-63.91 12 12 0 0 0 .48-17.43l-34-34a12 12 0 0 0-16.38-.55A176 176 0 1 1 402.1 157.8l-101.53-4.87a12 12 0 0 0-12.57 12v47.41a12 12 0 0 0 12 12h200.33a12 12 0 0 0 12-12V12a12 12 0 0 0-12-12z"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="content">
+      {{ range .Source.Paragraphs }}
+        <div class="paragraph mb-4 cursor-pointer relative flex">
+          <span class="copy-paragraph {{ if not $.ShowsParagraphs }}text-gray-500{{ end }} font-smaller mr-1">&lt;p&gt;</span>
+          <p class="inline-block">{{ . }}</p>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+
+  <div class="pt-10 px-6 text-gray-700">
+    <h2>CorporateLorem API</h2>
+    <code class="inline-block py-1 px-2 my-2 text-sm bg-gray-200 text-gray-600 rounded-sm">corporatelorem.kovah.de/api/[amount of paragraphs]</code>
+    <ul class="text-xs">
+      <li>The results will be returns as Json by default.</li>
+      <li>Append <code class="text-gray-600">paragraphs=true</code> as a query parameter to show paragraph tags in the output.</li>
+      <li>Append <code class="text-gray-600">format=text</code> as a query parameter to get plain text output.</li>
+    </ul>
+  </div>
+
+  <div class="pt-10 pb-5 px-6 text-xs opacity-75 text-gray-700">
+    Texts partially adapted from articles by <a href="https://www.nytimes.com/">the NY Times</a>, <a href="https://www.theguardian.com/">The Guardian</a> and <a href="https://www.theverge.com/">The Verge</a>
+  </div>
+
+  <div class="pb-10 px-6 text-xs opacity-75 text-gray-700">
+    A Project by <a href="https://www.kovah.de/">Kovah.de</a>
+    | <a href="https://corporatelorem.kovah.de/">Lorem Ipsum for client projects</a>
+    | <a href="https://github.com/Kovah/CorporateLorem/">Contribute</a>
+  </div>
+
+</div>
+
+<script src="/static/clipboard.min.js"></script>
+<script>
+  function displaySuccess($el) {
+    $el.classList.remove('success');
+    $el.classList.add('success');
+    setTimeout(function () {
+      $el.classList.remove('success');
+    }, 2000);
+  }
+
+  var paragraphs = document.querySelectorAll('.paragraph');
+  paragraphs.forEach(function ($paragraph) {
+    var $paragraphContent = $paragraph.querySelector('p');
+    var sentences = $paragraphContent.textContent.match(/[^.!?]+[.!?"]+/g);
+
+    $paragraphContent.innerHTML = sentences.map(function (sentence) {
+      return `<span class="sentence">${sentence.trim()}</span>`
+    }).join(' ')
+
+    // Sentences
+    $paragraph.querySelectorAll('.sentence').forEach(function ($sentence) {
+      var clipboard = new ClipboardJS($sentence, {
+        text: function (trigger) {
+          return trigger.innerText;
+        }
+      });
+
+      clipboard.on('success', function (e) {
+        displaySuccess($paragraph)
+      });
+    });
+
+    // Whole paragraph
+    var paragraphClipboard = new ClipboardJS($paragraph.querySelector('.copy-paragraph'), {
+      text: function (trigger) {
+        var copyParagaphs = document.querySelector('[name="copy-paragraphs"]').content === 'true'
+        return copyParagaphs ? `<p>${$paragraphContent.innerText}</p>` : $paragraphContent.innerText;
+      }
+    });
+
+    paragraphClipboard.on('success', function (e) {
+      displaySuccess($paragraph)
+    });
+  });
+</script>
+
+</body>
+</html>
