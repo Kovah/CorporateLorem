@@ -51,7 +51,7 @@
     <div class="content">
       {{ range .Source.Paragraphs }}
         <div class="paragraph mb-4 cursor-pointer relative flex">
-          <span class="copy-paragraph {{ if not $.ShowsParagraphs }}text-gray-500{{ end }} font-smaller mr-1 hover:bg-orange-200 hover:border-2 border-orange-200">&lt;p&gt;</span>
+          <span class="copy-paragraph {{ if not $.ShowsParagraphs }}text-gray-500{{ end }} font-smaller mr-1">&lt;p&gt;</span>
           <p class="inline-block">{{ . }}</p>
         </div>
       {{ end }}
@@ -96,7 +96,7 @@
     var sentences = $paragraphContent.textContent.match(/[^.!?]+[.!?"]+/g);
 
     $paragraphContent.innerHTML = sentences.map(function (sentence) {
-      return `<span class="sentence hover:bg-orange-200 hover:border-2 border-orange-200">${sentence.trim()}</span>`
+      return `<span class="sentence">${sentence.trim()}</span>`
     }).join(' ')
 
     // Sentences
