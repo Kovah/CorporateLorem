@@ -11,7 +11,9 @@
 
 ## About CorporateLorem
 
-CorporateLorem is a small tool that generates Lorem Ipsum paragraphs from real text about different serious topics.  
+CorporateLorem is a small tool that generates Lorem Ipsum paragraphs from real text about different serious topics.
+The tool contains texts from the New York Times, The Guardian and The Verge across 8 different topics, such as 
+politics, health and science.  
 It can be used as a command line tool, or can be run as a website that offers both a user interface to generate the
 paragraphs and an API.
 
@@ -48,10 +50,10 @@ Flags:
 
 #### Examples
 
-* `corporatelorem generate` would get you 5 quotes in JSON without `<p>` tags
-* `corporatelorem generate -n 15 -p` would get you 15 quotes in JSON including the `<p>` tags
-* `corporatelorem generate -n 30 -p -f text` would get you 30 quotes as plain text including the `<p>` tags
-* `corporatelorem generate -n 60 -f text` would get you 60 quotes as plain text without `<p>` tags
+* `corporatelorem generate` would get you 5 paragraphs in JSON without `<p>` tags
+* `corporatelorem generate -n 15 -p` would get you 15 paragraphs in JSON including the `<p>` tags
+* `corporatelorem generate -n 30 -p -f text` would get you 30 paragraphs as plain text including the `<p>` tags
+* `corporatelorem generate -n 60 -f text` would get you 60 paragraphs as plain text without `<p>` tags
 
 
 ---
@@ -64,7 +66,7 @@ using the `serve` command. By default, the started web server listens to port 80
 
 ```
 $ corporatelorem serve
-Starting HTTP server for CorporateLorem...
+Starting HTTP server for CorporateLorem on :80...
 ```
 
 You can now open CorporateLorem in your browser under `http://localhost`.
@@ -86,17 +88,17 @@ Required URL structure:
 `https://your-domain.com/api/[int]`
 
 * The results will be returns as Json by default.
-* The maximum allowed amount of quotes is `99`.
+* The maximum allowed amount of paragraphs is `99`.
 * Append `paragraphs=true` as a query parameter to show paragraph tags in the output.
 * Append `format=text` as a query parameter to get plain text output.
 
 
 #### Examples
 
-* `https://your-domain.com/api/5` would get you 5 quotes in JSON without `<p>` tags
-* `https://your-domain.com/api/15?paragraphs=true` would get you 15 quotes in JSON including the `<p>` tags
-* `https://your-domain.com/api/30?paragraphs=true&format=text` would get you 30 quotes as plain text including the `<p>` tags
-* `https://your-domain.com/api/60?format=text` would get you 60 quotes as plain text without `<p>` tags
+* `https://your-domain.com/api/5` would get you 5 paragraphs in JSON without `<p>` tags
+* `https://your-domain.com/api/15?paragraphs=true` would get you 15 paragraphs in JSON including the `<p>` tags
+* `https://your-domain.com/api/30?paragraphs=true&format=text` would get you 30 paragraphs as plain text including the `<p>` tags
+* `https://your-domain.com/api/60?format=text` would get you 60 paragraphs as plain text without `<p>` tags
 
 
 ---
@@ -134,7 +136,8 @@ styling like the ones that are already available:
 
 * Filename must contain the name (lowercase, spaces replaced with dashes).
 * The JSON strcuture must match the existing files.
-* Do not use any <p> tags in the quotes.
+* Do not use any <p> tags in the paragraphs.
+* Use texts from the already used sources only, or explain why a new source is needed.
 
 
 ---
