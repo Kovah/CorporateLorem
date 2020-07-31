@@ -2,6 +2,10 @@
 <html lang="en" class="min-h-full bg-gray-100 text-gray-900" style="background-color: #f9f7f5; color: #1d1f23">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="copy-paragraphs" content="{{ .ShowsParagraphs }}">
+
   <title>CorporateLorem</title>
   <link rel="stylesheet" href="/static/styles.css">
   <link rel="icon" href="/static/favicon.svg">
@@ -17,18 +21,18 @@
 </head>
 <body>
 
-<div class="container mx-auto px-2 md:px-4 xl:max-w-5xl">
+<div class="container mx-auto px-4 xl:max-w-5xl">
 
-  <div class="py-12 px-6 flex items-center">
-    <h1 class="text-2xl font-bold inline-block mr-6">CorporateLorem</h1>
-    <div class="ml-auto text-xs text-right">
+  <div class="py-12 px-6 sm:flex items-center">
+    <h1 class="text-2xl font-bold inline-block mb-4 sm:mb-0 sm:mr-6">CorporateLorem</h1>
+    <div class="ml-auto text-xs sm:text-right">
       {{ if .ShowsParagraphs }}
         <a href="/">Hide &lt;p&gt;</a>
       {{ else }}
         <a href="/p">Show &lt;p&gt;</a>
       {{ end }}
       <br>
-      <span class="text-gray-700">Click a paragraph to copy it</span>
+      <span class="text-gray-700">Click a sentence or the &lt;p&gt; to copy</span>
     </div>
   </div>
 
@@ -96,7 +100,7 @@
     }).join(' ')
 
     // Sentences
-    $paragraph.querySelectorAll('.sentence').forEach(function ($sentence){
+    $paragraph.querySelectorAll('.sentence').forEach(function ($sentence) {
       var clipboard = new ClipboardJS($sentence, {
         text: function (trigger) {
           return trigger.innerText;
@@ -111,7 +115,8 @@
     // Whole paragraph
     var paragraphClipboard = new ClipboardJS($paragraph.querySelector('.copy-paragraph'), {
       text: function (trigger) {
-        return `<p>${$paragraphContent.innerText}</p>`;
+        var copyParagaphs = document.querySelector('[name="copy-paragraphs"]').content === 'true'
+        return copyParagaphs ? `<p>${$paragraphContent.innerText}</p>` : $paragraphContent.innerText;
       }
     });
 
