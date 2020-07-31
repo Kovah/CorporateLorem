@@ -20,15 +20,7 @@ a:active {
   @apply text-orange-800;
 }
 
-.content p {
-  position: relative;
-}
-
-.content p:hover {
-  cursor: copy;
-}
-
-.content p:after {
+.paragraph:after {
    content: 'Copied!';
    position: absolute;
    top: 0;
@@ -44,7 +36,7 @@ a:active {
    transition: opacity 200ms ease;
 }
 
-.content p.success:after {
+.paragraph.success:after {
    opacity: 1;
 }
 
