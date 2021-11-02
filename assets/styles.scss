@@ -1,11 +1,13 @@
 @tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
   font-family: 'Garamound', 'Georgia', serif;
 }
 
 a {
-  @apply text-orange-600;
+  @apply text-orange-600 transition;
 }
 
 a:hover {
@@ -42,9 +44,6 @@ a:active {
 
 .copy-paragraph:hover,
 .sentence:hover {
-  @apply bg-orange-200;
-  outline: 2px solid #feebc8;
+  @apply bg-orange-100;
+  outline: 2px solid #ffedd5;
 }
-
-@tailwind components;
-@tailwind utilities;
