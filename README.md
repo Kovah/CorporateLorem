@@ -1,6 +1,7 @@
 <h1 align="center">CorporateLorem</h1>
 
 <p align="center">Get paragraphs of real text ready to copy and paste. No more "Lorem ipsum dolor", get some lines from serious articles.</p>
+<p align="center"><b>IMP</b>: Consult a lawyer on copyright issues before using the content in your applications. </b></p>
 
 <p>&nbsp;</p>
 
