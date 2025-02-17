@@ -8,6 +8,9 @@
 
 <p>&nbsp;</p>
 
+> [!NOTE]
+> CorporateLorem is no longer actively maintained, but continues to work and can be used. The app may be upgraded in the future if needed.
+
 
 ## About CorporateLorem
 
